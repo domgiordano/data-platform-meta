@@ -6,17 +6,17 @@ The Azure Data Platform is structured as three independent but integrated reposi
 
 ## Repository Structure
 
-### 1. Infrastructure Repository (https://github.com/domgiordano/data-platform-infrastructure)
+### 1. [Infrastructure Repository](https://github.com/domgiordano/data-platform-infrastructure)
 **Purpose**: Manages all Azure infrastructure using Terraform  
 **Deployment**: Terraform Cloud  
 **Branches**: `develop` → Dev | `staging` → Stg | `main` → Prod  
 
-### 2. Backend Repository (https://github.com/domgiordano/data-platform-backend)
+### 2. [Backend Repository](https://github.com/domgiordano/data-platform-backend)
 **Purpose**: Data processing, ETL/ELT, AI enrichment  
 **Deployment**: GitHub Actions → Azure Services  
 **Branches**: `develop` → Dev | `staging` → Stg | `main` → Prod  
 
-### 3. Frontend Repository (https://github.com/domgiordano/data-platform-frontend)
+### 3. [Frontend Repository](https://github.com/domgiordano/data-platform-frontend)
 **Purpose**: Web interface for search and monitoring  
 **Deployment**: GitHub Actions → Azure Static Web Apps/CDN  
 **Branches**: `develop` → Dev | `staging` → Stg | `main` → Prod  
