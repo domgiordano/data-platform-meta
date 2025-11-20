@@ -5,7 +5,7 @@
 We recommend implementing the Regulatory Document Intelligence Platform on **AWS** instead of Azure, projecting **40% cost savings** and **60% faster development time** due to team expertise and superior document processing capabilities.
 
 **Key Decision Factors:**
-- Team has existing AWS expertise (no learning curve)
+
 - AWS offers superior document AI services (Textract, Comprehend, Kendra)
 - Estimated $9,000/year cost savings
 - Simpler architecture with fewer components
@@ -16,30 +16,30 @@ We recommend implementing the Regulatory Document Intelligence Platform on **AWS
 
 ### Monthly Cost Breakdown (Production Scale: 100GB/day ingestion, 10TB storage)
 
-| Component | AWS Solution | Azure Solution | AWS Cost | Azure Cost |
-|-----------|--------------|----------------|----------|------------|
-| **Object Storage** | S3 Intelligent-Tiering | ADLS Gen2 | $230 | $380 |
-| **Compute/Processing** | Lambda (10M invocations) | Azure Functions | $180 | $200 |
-| **ETL/Orchestration** | Glue + Step Functions | Synapse + ADF | $150 | $500 |
-| **Document AI** | Textract (10k pages) | Form Recognizer | $150 | $200 |
-| **Vector Search** | OpenSearch (3x m5.large) | AI Search (S2) | $450 | $750 |
-| **SQL Analytics** | Athena (1TB scanned) | Synapse Serverless | $5 | $25 |
-| **Streaming** | Kinesis Data Streams | Event Hub | $100 | $120 |
-| **Monitoring** | CloudWatch | Application Insights | $50 | $80 |
-| **Networking** | VPC + NAT Gateway | VNet + NAT | $45 | $45 |
-| **Secrets Management** | Secrets Manager | Key Vault | $10 | $15 |
-| **TOTAL MONTHLY** | | | **$1,370** | **$2,315** |
-| **ANNUAL TOTAL** | | | **$16,440** | **$27,780** |
+| Component              | AWS Solution             | Azure Solution       | AWS Cost    | Azure Cost  |
+| ---------------------- | ------------------------ | -------------------- | ----------- | ----------- |
+| **Object Storage**     | S3 Intelligent-Tiering   | ADLS Gen2            | $230        | $380        |
+| **Compute/Processing** | Lambda (10M invocations) | Azure Functions      | $180        | $200        |
+| **ETL/Orchestration**  | Glue + Step Functions    | Synapse + ADF        | $150        | $500        |
+| **Document AI**        | Textract (10k pages)     | Form Recognizer      | $150        | $200        |
+| **Vector Search**      | OpenSearch (3x m5.large) | AI Search (S2)       | $450        | $750        |
+| **SQL Analytics**      | Athena (1TB scanned)     | Synapse Serverless   | $5          | $25         |
+| **Streaming**          | Kinesis Data Streams     | Event Hub            | $100        | $120        |
+| **Monitoring**         | CloudWatch               | Application Insights | $50         | $80         |
+| **Networking**         | VPC + NAT Gateway        | VNet + NAT           | $45         | $45         |
+| **Secrets Management** | Secrets Manager          | Key Vault            | $10         | $15         |
+| **TOTAL MONTHLY**      |                          |                      | **$1,370**  | **$2,315**  |
+| **ANNUAL TOTAL**       |                          |                      | **$16,440** | **$27,780** |
 
 ### 3-Year TCO Analysis
 
-| | AWS | Azure |
-|--|-----|--------|
-| Infrastructure Costs (3 years) | $49,320 | $83,340 |
-| Development Time (team knows AWS) | 3 months | 5 months |
-| Development Cost (@$150/hour, 2 devs) | $72,000 | $120,000 |
-| Training/Ramp-up | $0 | $10,000 |
-| **Total 3-Year TCO** | **$121,320** | **$213,340** |
+|                                       | AWS          | Azure        |
+| ------------------------------------- | ------------ | ------------ |
+| Infrastructure Costs (3 years)        | $49,320      | $83,340      |
+| Development Time (team knows AWS)     | 3 months     | 5 months     |
+| Development Cost (@$150/hour, 2 devs) | $72,000      | $120,000     |
+| Training/Ramp-up                      | $0           | $10,000      |
+| **Total 3-Year TCO**                  | **$121,320** | **$213,340** |
 
 **Savings with AWS: $92,020 (43%)**
 
@@ -98,22 +98,23 @@ More integration points, more complexity, higher operational overhead
 
 ## 3. Feature Comparison for Document Processing
 
-| Feature | AWS | Azure | Advantage |
-|---------|-----|--------|-----------|
-| **PDF Text Extraction** | Textract (automatic) | Form Recognizer + custom code | AWS ✓ |
-| **Table Extraction** | Textract native | Complex custom logic | AWS ✓ |
-| **Multi-language OCR** | Textract (60+ languages) | Limited languages | AWS ✓ |
-| **Entity Recognition** | Comprehend native | Text Analytics API | AWS ✓ |
-| **Document Classification** | Comprehend custom | Custom model needed | AWS ✓ |
-| **Semantic Search** | Kendra + OpenSearch | AI Search | AWS ✓ |
-| **Vector Embeddings** | Bedrock/SageMaker | OpenAI only | AWS ✓ |
-| **Compliance Features** | Macie for PII detection | Limited | AWS ✓ |
+| Feature                     | AWS                      | Azure                         | Advantage |
+| --------------------------- | ------------------------ | ----------------------------- | --------- |
+| **PDF Text Extraction**     | Textract (automatic)     | Form Recognizer + custom code | AWS ✓     |
+| **Table Extraction**        | Textract native          | Complex custom logic          | AWS ✓     |
+| **Multi-language OCR**      | Textract (60+ languages) | Limited languages             | AWS ✓     |
+| **Entity Recognition**      | Comprehend native        | Text Analytics API            | AWS ✓     |
+| **Document Classification** | Comprehend custom        | Custom model needed           | AWS ✓     |
+| **Semantic Search**         | Kendra + OpenSearch      | AI Search                     | AWS ✓     |
+| **Vector Embeddings**       | Bedrock/SageMaker        | OpenAI only                   | AWS ✓     |
+| **Compliance Features**     | Macie for PII detection  | Limited                       | AWS ✓     |
 
 ---
 
 ## 4. Implementation Plan for AWS
 
 ### Phase 1: Foundation (Weeks 1-2)
+
 ```yaml
 Infrastructure:
   - VPC with private/public subnets
@@ -129,6 +130,7 @@ Repositories:
 ```
 
 ### Phase 2: Data Pipeline (Weeks 3-4)
+
 ```yaml
 Ingestion:
   - EventBridge rules for scheduled crawling
@@ -143,6 +145,7 @@ Processing:
 ```
 
 ### Phase 3: AI & Search (Weeks 5-6)
+
 ```yaml
 AI Layer:
   - Bedrock for embeddings (Claude/Titan)
@@ -156,6 +159,7 @@ Search:
 ```
 
 ### Phase 4: Frontend & Analytics (Weeks 7-8)
+
 ```yaml
 API:
   - API Gateway REST endpoints
@@ -174,6 +178,7 @@ Analytics:
 ```
 
 ### Phase 5: Production Readiness (Weeks 9-12)
+
 ```yaml
 Operations:
   - CloudWatch alarms
@@ -193,6 +198,7 @@ Security:
 ## 5. AWS-Specific Implementation Details
 
 ### Data Lake Structure
+
 ```
 s3://regulatory-platform-{env}/
 ├── raw/
@@ -213,6 +219,7 @@ s3://regulatory-platform-{env}/
 ```
 
 ### Step Functions Workflow
+
 ```json
 {
   "Comment": "Document Processing Pipeline",
@@ -252,6 +259,7 @@ s3://regulatory-platform-{env}/
 ```
 
 ### Lambda Function Example
+
 ```python
 # document_processor.py
 import json
@@ -265,28 +273,28 @@ opensearch = boto3.client('opensearchserverless')
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     """Process regulatory document"""
-    
+
     # Get document from S3
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = event['Records'][0]['s3']['object']['key']
-    
+
     # Extract text using Textract
     response = textract.start_document_text_detection(
         DocumentLocation={'S3Object': {'Bucket': bucket, 'Name': key}}
     )
-    
+
     # Extract entities using Comprehend
     entities = comprehend.detect_entities(
         Text=extracted_text,
         LanguageCode='en'
     )
-    
+
     # Generate embeddings using Bedrock
     bedrock_response = bedrock.invoke_model(
         modelId='amazon.titan-embed-text-v1',
         body=json.dumps({'inputText': extracted_text})
     )
-    
+
     # Index in OpenSearch
     opensearch.index(
         index='regulatory-docs',
@@ -297,7 +305,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'metadata': document_metadata
         }
     )
-    
+
     return {'statusCode': 200, 'processed': key}
 ```
 
@@ -305,25 +313,27 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 
 ## 6. Risk Mitigation
 
-| Risk | AWS Mitigation | Azure Challenge |
-|------|----------------|-----------------|
-| **Vendor Lock-in** | Use Terraform, containerize with ECS/Fargate | Heavy Synapse dependency |
-| **Cost Overrun** | AWS Budgets, Reserved Instances, Spot | Synapse minimum costs high |
-| **Scaling Issues** | Lambda auto-scales, S3 unlimited | Synapse pool management |
-| **Compliance** | AWS GovCloud available, SOC2, HIPAA | Similar but less documented |
-| **Skill Gap** | Team knows AWS | 2-3 month learning curve |
+| Risk               | AWS Mitigation                               | Azure Challenge             |
+| ------------------ | -------------------------------------------- | --------------------------- |
+| **Vendor Lock-in** | Use Terraform, containerize with ECS/Fargate | Heavy Synapse dependency    |
+| **Cost Overrun**   | AWS Budgets, Reserved Instances, Spot        | Synapse minimum costs high  |
+| **Scaling Issues** | Lambda auto-scales, S3 unlimited             | Synapse pool management     |
+| **Compliance**     | AWS GovCloud available, SOC2, HIPAA          | Similar but less documented |
+| **Skill Gap**      | Team knows AWS                               | 2-3 month learning curve    |
 
 ---
 
 ## 7. Migration Strategy from Current System
 
 ### If Moving from On-Premises
+
 1. **Week 1-2**: Set up AWS landing zone
 2. **Week 3-4**: Migrate historical data to S3
 3. **Week 5-6**: Parallel run with existing system
 4. **Week 7-8**: Cutover and validation
 
 ### If Moving from Azure
+
 1. Use AWS DataSync for S3 migration
 2. Convert ADF pipelines to Step Functions
 3. Replace Synapse notebooks with Glue jobs
@@ -333,13 +343,13 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 
 ## 8. Success Metrics
 
-| Metric | Target | AWS Capability | Azure Challenge |
-|--------|--------|----------------|-----------------|
-| Document Processing Speed | <2 min/doc | Lambda parallelization | Synapse pool delays |
-| Search Latency | <100ms | OpenSearch + CloudFront | AI Search latency |
-| Cost per Document | <$0.10 | Achieved with Textract | Higher with Form Recognizer |
-| Development Velocity | 2 weeks/feature | Team expertise | Learning curve |
-| System Availability | 99.9% | Multi-AZ default | Complex HA setup |
+| Metric                    | Target          | AWS Capability          | Azure Challenge             |
+| ------------------------- | --------------- | ----------------------- | --------------------------- |
+| Document Processing Speed | <2 min/doc      | Lambda parallelization  | Synapse pool delays         |
+| Search Latency            | <100ms          | OpenSearch + CloudFront | AI Search latency           |
+| Cost per Document         | <$0.10          | Achieved with Textract  | Higher with Form Recognizer |
+| Development Velocity      | 2 weeks/feature | Team expertise          | Learning curve              |
+| System Availability       | 99.9%           | Multi-AZ default        | Complex HA setup            |
 
 ---
 
@@ -354,12 +364,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 5. **Better Scalability**: Lambda + S3 scales infinitely
 
 ### Next Steps
+
 1. Approval for AWS approach
 2. Provision AWS accounts (Dev/Staging/Prod)
 3. Set up Terraform Cloud workspaces
 4. Begin Phase 1 implementation
 
 ### Timeline
+
 - **Proof of Concept**: 2 weeks
 - **MVP**: 6 weeks
 - **Production Ready**: 12 weeks
@@ -368,27 +380,26 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 
 ## Appendix A: Detailed AWS Service Mapping
 
-| Requirement | AWS Service | Configuration |
-|-------------|------------|---------------|
-| Document Storage | S3 | Intelligent-Tiering, Encryption |
-| Document Processing | Textract | Async APIs for large docs |
-| ETL | Glue | Serverless Spark jobs |
-| Orchestration | Step Functions | Express workflows |
-| Search | OpenSearch | m5.large.search x3 |
-| Vector DB | RDS PostgreSQL | pgvector extension |
-| API | API Gateway + Lambda | REST/WebSocket |
-| Frontend Hosting | CloudFront + S3 | Static site |
-| Auth | Cognito | SAML integration |
-| Monitoring | CloudWatch + X-Ray | Full observability |
-| IaC | Terraform | Terraform Cloud backend |
+| Requirement         | AWS Service          | Configuration                   |
+| ------------------- | -------------------- | ------------------------------- |
+| Document Storage    | S3                   | Intelligent-Tiering, Encryption |
+| Document Processing | Textract             | Async APIs for large docs       |
+| ETL                 | Glue                 | Serverless Spark jobs           |
+| Orchestration       | Step Functions       | Express workflows               |
+| Search              | OpenSearch           | m5.large.search x3              |
+| Vector DB           | RDS PostgreSQL       | pgvector extension              |
+| API                 | API Gateway + Lambda | REST/WebSocket                  |
+| Frontend Hosting    | CloudFront + S3      | Static site                     |
+| Auth                | Cognito              | SAML integration                |
+| Monitoring          | CloudWatch + X-Ray   | Full observability              |
+| IaC                 | Terraform            | Terraform Cloud backend         |
 
 ## Appendix B: Team Training Not Required
 
 Your team already knows:
+
 - AWS IAM and security best practices
 - S3 lifecycle policies and event notifications
 - Lambda development and deployment
 - CloudFormation/Terraform for AWS
 - CloudWatch debugging
-
-This translates to immediate productivity vs 2-3 months of Azure training.
